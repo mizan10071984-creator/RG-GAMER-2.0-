@@ -1,1 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RG GAMER 2.0 | LINK ACCESS</title>
 
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ padding:20px;
+ background:#080510;
+ color:white;
+ font-family:Arial,sans-serif;
+ text-align:center;
+}
+
+.container{
+ max-width:430px;
+ margin:35px auto;
+ padding:25px;
+ background:#130b20;
+ border:1px solid #a020ff;
+ border-radius:18px;
+ box-shadow:0 0 25px #a020ff55;
+}
+
+h1{
+ color:#c084ff;
+ text-shadow:0 0 15px #a020ff;
+}
+
+.subtitle{color:#aaa}
+
+.step{
+ margin:20px 0;
+ padding:20px;
+ background:#211331;
+ border-radius:12px;
+ border:1px solid #7435a8;
+}
+
+.timer{
+ font-size:38px;
+ color:#d6a3ff;
+ font-weight:bold;
+}
+
+button,.download{
+ width:100%;
+ padding:15px;
+ border:0;
+ border-radius:9px;
+ background:linear-gradient(90deg,#7200ff,#bd38ff);
+ color:white;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+button:disabled{opacity:.4}
+
+.download{
+ display:block;
+ text-decoration:none;
+ margin-top:15px;
+}
+
+#step2,#step3,#final{display:none}
+
+.footer{
+ margin-top:25px;
+ color:#888;
+ font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>RG GAMER 2.0</h1>
+<p class="subtitle">OLD FREE FIRE VERSION ACCESS</p>
+<p>LINK VERIFICATION SYSTEM</p>
+
+<div class="step" id="step1">
+<h3>STEP 01</h3>
+<div class="timer" id="time1">10</div>
+<p id="msg1">PLEASE WAIT...</p>
+<button id="btn1" disabled onclick="next(1)">
+CONTINUE
+</button>
+</div>
+
+<div class="step" id="step2">
+<h3>STEP 02</h3>
+<div class="timer" id="time2">10</div>
+<p id="msg2">PLEASE WAIT...</p>
+<button id="btn2" disabled onclick="next(2)">
+CONTINUE
+</button>
+</div>
+
+<div class="step" id="step3">
+<h3>STEP 03 - LAST STEP</h3>
+<div class="timer" id="time3">10</div>
+<p id="msg3">PLEASE WAIT...</p>
+<button id="btn3" disabled onclick="next(3)">
+GET DOWNLOAD LINK
+</button>
+</div>
+
+<div id="final">
+<h2 style="color:#d6a3ff">
+ACCESS COMPLETED!
+</h2>
+
+<p>Your MediaFire Link Is Ready</p>
+
+<a class="download"
+id="download"
+href="https://www.mediafire.com/file/l5h0cvziqhwpip6/LASTUPDATEBLGEXACT.apk/file"
+target="_blank"
+rel="noopener">
+DOWNLOAD NOW
+</a>
+</div>
+
+<div class="footer">
+© 2026 RG GAMER 2.0
+</div>
+
+</div>
+
+<script>
+let current=1;
+let timerInterval=null;
+
+function startTimer(n){
+
+ let seconds=10;
+
+ const timer=document.getElementById("time"+n);
+ const btn=document.getElementById("btn"+n);
+ const msg=document.getElementById("msg"+n);
+
+ btn.disabled=true;
+ timer.textContent=seconds;
+
+ timerInterval=setInterval(()=>{
+
+  seconds--;
+  timer.textContent=seconds;
+
+  if(seconds<=0){
+
+   clearInterval(timerInterval);
+
+   msg.textContent="STEP COMPLETED!";
+   btn.disabled=false;
+
+  }
+
+ },1000);
+}
+
+function next(n){
+
+ if(n!==current)return;
+
+ if(n<3){
+
+  document.getElementById("step"+n).style.display="none";
+
+  current++;
+
+  document.getElementById("step"+current).style.display="block";
+
+  startTimer(current);
+
+ }else{
+
+  document.getElementById("step3").style.display="none";
+
+  document.getElementById("final").style.display="block";
+
+ }
+
+}
+
+startTimer(1);
+</script>
+
+</body>
+</html>
